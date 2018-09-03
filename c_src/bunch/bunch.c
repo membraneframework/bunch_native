@@ -1,4 +1,3 @@
-#include <errno.h>
 #include "bunch.h"
 
 static const char * errno_to_string(int num);

@@ -17,6 +17,14 @@ Add the following line to your `deps` in `mix.exs`. Run `mix deps.get`.
 ```
 
 All native stuff is exported as `:bunch` [Bundlex](https://hex.pm/packages/bundlex) dependency.
+To import, add the following line to your nif specification in `bundlex.exs`
+```elixir
+deps: [bunch_native: :bunch]
+```
+and another one in your native header file
+```c
+#import <bunch/bunch.h>
+```
 
 ## Copyright and License
 

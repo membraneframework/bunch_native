@@ -6,7 +6,7 @@ defmodule Bunch.Native.Mixfile do
 
   def project do
     [
-      app: :shmex,
+      app: :bunch_native,
       version: @version,
       elixir: "~> 1.7",
       elixirc_paths: elixirc_paths(Mix.env()),

@@ -12,7 +12,6 @@ defmodule Bunch.Native.BundlexProject do
       bunch: [
         src_base: "bunch",
         export_only?: Mix.env() != :test,
-        src_base: "bunch",
         sources: ["bunch.c"]
       ]
     ]
