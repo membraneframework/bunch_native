@@ -27,7 +27,7 @@ defmodule Bunch.Native.Mixfile do
     [
       maintainers: ["Membrane Team"],
       licenses: ["Apache 2.0"],
-      files: ["lib", "c_src", "mix.exs", "README*", "LICENSE*", ".formatter.exs", "bundlex.exs"],
+      files: ["c_src", "mix.exs", "README*", "LICENSE*", ".formatter.exs", "bundlex.exs"],
       links: %{
         "GitHub" => @github_url,
         "Membrane Framework Homepage" => "https://membraneframework.org"
