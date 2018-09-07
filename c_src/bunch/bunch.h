@@ -5,7 +5,7 @@
 #include <string.h>
 #include <errno.h>
 
-#define UNUSED(x) (void)(x)
+#define BUNCH_UNUSED(x) (void)(x)
 
 // varargs parse helpers
 #define BUNCH_PARSE_ARG(position, var_name, var_def, getter_func, ...) \
@@ -19,6 +19,9 @@
 
 #define BUNCH_PARSE_INT_ARG(position, var_name) \
   BUNCH_PARSE_ARG(position, var_name, int var_name, enif_get_int, &var_name)
+
+#define BUNCH_PARSE_LONG_ARG(position, var_name) \
+  BUNCH_PARSE_ARG(position, var_name, long var_name, enif_get_long, &var_name)
 
 #define BUNCH_PARSE_ATOM_ARG(position, var_name, max_size) \
   BUNCH_PARSE_ARG(position, var_name, char var_name[max_size], enif_get_atom, (char *) var_name, max_size, ERL_NIF_LATIN1)
