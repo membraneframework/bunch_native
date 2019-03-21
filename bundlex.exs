@@ -3,15 +3,14 @@ defmodule Bunch.Native.BundlexProject do
 
   def project do
     [
-      nifs: nifs(Bundlex.platform())
+      libs: libs()
     ]
   end
 
-  defp nifs(_platform) do
+  defp libs do
     [
       bunch: [
         src_base: "bunch",
-        export_only?: Mix.env() != :test,
         sources: ["bunch.c"]
       ]
     ]
