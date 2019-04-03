@@ -36,7 +36,7 @@ ERL_NIF_TERM bunch_make_error_str(ErlNifEnv *env, const char *reason) {
  */
 ERL_NIF_TERM bunch_make_error_errno(ErlNifEnv *env, const char *call) {
   ERL_NIF_TERM tuple =
-      enif_make_tuple2(env, enif_make_atom(env, bunch_errno_to_string(errno)),
+      enif_make_tuple2(env, enif_make_atom(env, bunch_errno_string()),
                        enif_make_atom(env, call));
 
   return bunch_make_error(env, tuple);
