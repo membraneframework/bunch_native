@@ -1,6 +1,6 @@
 #include "bunch.h"
 
-const char * bunch_errno_to_string(int num) {
+const char *bunch_errno_to_string(int num) {
   switch (num) {
 #ifdef E2BIG
   case E2BIG:
