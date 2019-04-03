@@ -3,15 +3,13 @@
 #include <stdarg.h>
 #include <erl_nif.h>
 #include <string.h>
-#include <errno.h>
-
-#define BUNCH_UNUSED(x) (void)(x)
+#include "../../common/bunch/bunch.h"
 
 // varargs parse helpers
 #define BUNCH_PARSE_ARG(position, var_name, var_def, getter_func, ...) \
   var_def; \
   if(!getter_func(env, argv[position], __VA_ARGS__)) { \
-    return bunch_make_error_args(env, #var_name, #getter_func); \
+    return bunch_raise_error_args(env, #var_name, #getter_func); \
   }
 
 #define BUNCH_PARSE_UINT_ARG(position, var_name) \
@@ -35,18 +33,17 @@
 #define BUNCH_PARSE_RESOURCE_ARG(position, var_name, var_type, res_type) \
   var_type * var_name; \
   if(!enif_get_resource(env, argv[position], res_type, (void **) & var_name)) { \
-    return bunch_make_error_args(env, #var_name, "enif_get_resource"); \
+    return bunch_raise_error_args(env, #var_name, "enif_get_resource"); \
   }
 
 #define BUNCH_PARSE_PID_ARG(position, var_name) \
   BUNCH_PARSE_ARG(position, var_name, ErlNifPid var_name, enif_get_local_pid, &var_name)
 
 
-ERL_NIF_TERM bunch_make_error(ErlNifEnv* env, ERL_NIF_TERM reason);
-ERL_NIF_TERM bunch_make_ok_tuple(ErlNifEnv* env, ERL_NIF_TERM arg);
-ERL_NIF_TERM bunch_make_ok_tuple2(ErlNifEnv* env, ERL_NIF_TERM arg1, ERL_NIF_TERM arg2);
 ERL_NIF_TERM bunch_make_ok(ErlNifEnv* env);
-ERL_NIF_TERM bunch_make_todo(ErlNifEnv* env);
-ERL_NIF_TERM bunch_make_error_args(ErlNifEnv* env, const char* field, const char *description);
+ERL_NIF_TERM bunch_make_ok_tuple(ErlNifEnv* env, ERL_NIF_TERM arg);
+ERL_NIF_TERM bunch_make_error(ErlNifEnv* env, ERL_NIF_TERM reason);
+ERL_NIF_TERM bunch_make_error_str(ErlNifEnv* env, const char* reason);
 ERL_NIF_TERM bunch_make_error_errno(ErlNifEnv* env, const char* call);
-ERL_NIF_TERM bunch_make_error_internal(ErlNifEnv* env, const char* reason);
+ERL_NIF_TERM bunch_raise_error_args(ErlNifEnv* env, const char* field, const char *reason);
+ERL_NIF_TERM bunch_raise_error(ErlNifEnv* env, const char* description);
