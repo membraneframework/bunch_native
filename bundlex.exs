@@ -10,12 +10,13 @@ defmodule Bunch.Native.BundlexProject do
   defp libs do
     [
       bunch: [
-        src_base: "bunch/common/bunch",
+        src_base: "bunch/bunch",
         sources: ["bunch.c"]
       ],
       bunch_nif: [
+        deps: [bunch_native: :bunch],
         src_base: "bunch/nif/bunch",
-        sources: ["bunch.c", "../../common/bunch/bunch.c"]
+        sources: ["bunch_nif.c"]
       ]
     ]
   end
