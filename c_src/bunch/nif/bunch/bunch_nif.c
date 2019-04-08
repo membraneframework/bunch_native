@@ -1,4 +1,4 @@
-#include "bunch.h"
+#include "bunch_nif.h"
 
 /**
  * Builds `:ok`.

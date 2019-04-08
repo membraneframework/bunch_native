@@ -1,9 +1,9 @@
 #pragma once
 
-#include "../../common/bunch/bunch.h"
 #include <erl_nif.h>
 #include <stdarg.h>
 #include <string.h>
+#include <bunch/bunch.h>
 
 // varargs parse helpers
 #define BUNCH_PARSE_ARG(position, var_name, var_def, getter_func, ...)         \
