@@ -2,7 +2,7 @@
 
 [![Hex.pm](https://img.shields.io/hexpm/v/bunch_native.svg)](https://hex.pm/packages/bunch_native)
 [![API Docs](https://img.shields.io/badge/api-docs-yellow.svg?style=flat)](https://hexdocs.pm/bunch_native/)
-[![Build Status](https://travis-ci.com/membraneframework/bunch-native.svg?branch=master)](https://travis-ci.com/membraneframework/bunch-native)
+[![CircleCI](https://circleci.com/gh/membraneframework/bunch-native.svg?style=svg)](https://circleci.com/gh/membraneframework/bunch-native)
 
 Native part of the [Bunch](https://hex.pm/packages/bunch) package.
 
