@@ -51,7 +51,7 @@ ERL_NIF_TERM bunch_raise_error_args(ErlNifEnv *env, const char *field,
   char *description = enif_alloc(strlen(field) + strlen(reason) + 255);
   sprintf(description, "Invalid argument %s, reason: %s", field, reason);
   ERL_NIF_TERM result = bunch_raise_error(env, description);
-  free(description);
+  enif_free(description);
   return result;
 }
 
