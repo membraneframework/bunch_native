@@ -9,14 +9,15 @@ defmodule Bunch.Native.BundlexProject do
 
   defp libs do
     [
-      bunch: [
+      lib: [
         src_base: "bunch/bunch",
-        sources: ["bunch.c"]
+        sources: ["lib.c"]
       ],
-      bunch_nif: [
-        deps: [bunch_native: :bunch],
+      bunch: [
+        interface: :nif,
+        deps: [bunch_native: :lib],
         src_base: "bunch/nif/bunch",
-        sources: ["bunch_nif.c"]
+        sources: ["bunch.c"]
       ]
     ]
   end

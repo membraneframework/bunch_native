@@ -15,17 +15,17 @@ The source code is available at [GitHub](https://github.com/membraneframework/bu
 Add the following line to your `deps` in `mix.exs`. Run `mix deps.get`.
 
 ```elixir
-{:bunch_native, "~> 0.2.0"}
+{:bunch_native, "~> 0.3.0"}
 ```
 
-All the native stuff is exported as [Bundlex](https://hex.pm/packages/bundlex) dependencies: `:bunch` and `:bunch_nif` (containing NIF-specific helpers, superset of `:bunch`).
+All the native stuff is exported as [Bundlex](https://hex.pm/packages/bundlex) dependencies: `:lib` and `:bunch` (containing NIF-specific helpers, superset of `:lib`).
 To import, add the following line to your native specification in `bundlex.exs`:
 ```elixir
-deps: [bunch_native: :bunch] # or :bunch_nif
+deps: [bunch_native: :lib] # or :bunch
 ```
 and another one in your native header file:
 ```c
-#import <bunch/bunch.h> // or bunch_nif.h
+#import <bunch/lib.h> // or bunch.h
 ```
 
 ## Copyright and License
