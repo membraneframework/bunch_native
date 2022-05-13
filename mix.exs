@@ -8,15 +8,19 @@ defmodule Bunch.Native.Mixfile do
     [
       app: :bunch_native,
       version: @version,
-      elixir: "~> 1.7",
+      elixir: "~> 1.12",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:bundlex] ++ Mix.compilers(),
+      deps: deps(),
+
+      # hex
       description: "Native part of the Bunch package",
       package: package(),
+
+      # docs
       name: "Bunch Native",
       source_url: @github_url,
-      docs: docs(),
-      deps: deps()
+      docs: docs()
     ]
   end
 
