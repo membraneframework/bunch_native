@@ -1,7 +1,7 @@
 defmodule Bunch.Native.Mixfile do
   use Mix.Project
 
-  @version "0.4.0"
+  @version "0.5.0"
   @github_url "https://github.com/membraneframework/bunch-native"
 
   def project do
@@ -50,7 +50,7 @@ defmodule Bunch.Native.Mixfile do
   defp deps() do
     [
       {:ex_doc, "~> 0.22", only: :dev, runtime: false},
-      {:bundlex, "~> 0.5.0"}
+      {:bundlex, "~> 1.0"}
     ]
   end
 end
