@@ -6,6 +6,7 @@ defmodule Bunch.Native.Mixfile do
 
   def project do
     [
+      homepage_url: "https://membrane.stream",
       app: :bunch_native,
       version: @version,
       elixir: "~> 1.12",
