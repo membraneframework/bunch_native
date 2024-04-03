@@ -20,7 +20,8 @@ defmodule Bunch.Native.Mixfile do
       # docs
       name: "Bunch Native",
       source_url: @github_url,
-      docs: docs()
+      docs: docs(),
+      homepage_url: "https://membrane.stream"
     ]
   end
 
