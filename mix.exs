@@ -1,7 +1,7 @@
 defmodule Bunch.Native.Mixfile do
   use Mix.Project
 
-  @version "0.5.0"
+  @version "0.5.1"
   @github_url "https://github.com/membraneframework/bunch-native"
 
   def project do
@@ -14,14 +14,15 @@ defmodule Bunch.Native.Mixfile do
       deps: deps(),
 
       # hex
-      description: "Native part of the Bunch package",
+      description: "Native C helpers (NIFs) for Membrane plugins.",
       package: package(),
 
       # docs
       name: "Bunch Native",
       source_url: @github_url,
       docs: docs(),
-      homepage_url: "https://membrane.stream"
+      homepage_url: "https://membrane.stream",
+      aliases: [docs: ["docs", &prepend_llms_links/1]]
     ]
   end
 
@@ -50,8 +51,23 @@ defmodule Bunch.Native.Mixfile do
 
   defp deps() do
     [
-      {:ex_doc, "~> 0.22", only: :dev, runtime: false},
+      {:ex_doc, "~> 0.40", only: :dev, runtime: false},
       {:bundlex, "~> 1.0"}
     ]
   end
+
+defp prepend_llms_links(_) do
+  path = "doc/llms.txt"
+
+  if File.exists?(path) do
+    existing = File.read!(path)
+
+    header =
+      "- [Membrane Core AI Skill](https://hexdocs.pm/membrane_core/skill.md)\n" <>
+        "- [Membrane Core](https://hexdocs.pm/membrane_core/llms.txt)\n\n"
+
+    File.write!(path, header <> existing)
+  end
+end
+
 end
