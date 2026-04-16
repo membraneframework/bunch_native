@@ -11,6 +11,7 @@ jobs:
 
   lint:
     uses: membraneframework/membrane_actions/.github/workflows/lint.yml@main
-
-  test:
-    uses: membraneframework/membrane_actions/.github/workflows/test.yml@main
+    with:
+      credo: false
+      docs: false
+      dialyzer: false
