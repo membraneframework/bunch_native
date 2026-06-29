@@ -51,7 +51,7 @@ defmodule Bunch.Native.Mixfile do
 
   defp deps() do
     [
-      {:ex_doc, "~> 0.40", only: :dev, runtime: false},
+      {:ex_doc, ">= 0.40.0", only: :dev, runtime: false},
       {:bundlex, "~> 1.0"}
     ]
   end
